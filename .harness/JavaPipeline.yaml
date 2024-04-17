@@ -36,12 +36,8 @@ pipeline:
                     image: maven
                     shell: Sh
                     command: |+
-                      cd /
-                      ls -lart 
-                      cd /root
-                      ls -lart
-                      cd /harness/
-                      ls -lart
+                      cd java-hello-world-with-maven
+                      cat pom.xml
                       #mvn -Dmaven.test.skip=true -f pom.xml clean install -X
 
           sharedPaths:
