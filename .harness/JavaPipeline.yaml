@@ -35,4 +35,6 @@ pipeline:
                     connectorRef: dockerhubfrancislabs
                     image: maven
                     shell: Sh
-                    command: mvn -Dmaven.test.skip=true -f pom.xml clean install -X
+                    command: |-
+                      #mvn -Dmaven.test.skip=true -f pom.xml clean install -X
+                      pwd
