@@ -40,6 +40,8 @@ pipeline:
                       cat pom.xml
                       mvn -Dmaven.test.skip=true -f pom.xml clean install -X
 
+                    envVariables:
+                      MAVEN_OPTS: "-Dmaven.repo.local=/harness/maven/repository"
           sharedPaths:
             - /root/.m2
             - /var/run
