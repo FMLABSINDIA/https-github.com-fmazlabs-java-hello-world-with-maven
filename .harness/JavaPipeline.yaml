@@ -36,7 +36,7 @@ pipeline:
                     image: maven
                     shell: Sh
                     command: |+
-                      ls -lrt
+                      ls -lrt /root
                       mvn -Dmaven.test.skip=true -f pom.xml clean install -X
 
           sharedPaths:
