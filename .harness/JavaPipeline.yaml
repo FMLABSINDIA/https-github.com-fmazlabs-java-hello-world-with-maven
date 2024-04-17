@@ -38,3 +38,7 @@ pipeline:
                     command: |-
                       #mvn -Dmaven.test.skip=true -f pom.xml clean install -X
                       pwd
+                      ls -lrt 
+                      cd ..
+                      pwd 
+                      ls -lrt 
