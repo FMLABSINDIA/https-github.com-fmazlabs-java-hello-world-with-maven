@@ -35,17 +35,10 @@ pipeline:
                     connectorRef: dockerhubfrancislabs
                     image: maven
                     shell: Sh
-                    command: |-
-                      mvn -Dmaven.test.skip=true -f pom.xml clean install -X
-                      pwd
-                      ls -lrt 
-                      cd ..
-                      pwd 
-                      ls -lrt 
-                      cd java-hello-world-with-maven
+                    command: |+
                       ls -lrt
-                    envVariables:
-                      MAVEN_OPTS: "-Dmaven.repo.local=/harness/maven/repository"
+                      mvn -Dmaven.test.skip=true -f pom.xml clean install -X
+
           sharedPaths:
             - /root/.m2
           caching:
