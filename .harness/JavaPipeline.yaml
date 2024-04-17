@@ -36,7 +36,7 @@ pipeline:
                     image: maven
                     shell: Sh
                     command: |-
-                      #mvn -Dmaven.test.skip=true -f pom.xml clean install -X
+                      mvn -Dmaven.test.skip=true -f pom.xml clean install -X
                       pwd
                       ls -lrt 
                       cd ..
