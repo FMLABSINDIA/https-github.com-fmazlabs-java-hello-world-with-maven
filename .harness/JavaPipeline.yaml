@@ -44,3 +44,5 @@ pipeline:
                       ls -lrt 
                       cd java-hello-world-with-maven
                       ls -lrt
+                    envVariables:
+                      MAVEN_OPTS: "-Dmaven.repo.local=/harness/maven/repository"
