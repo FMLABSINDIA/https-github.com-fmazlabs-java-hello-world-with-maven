@@ -36,7 +36,6 @@ pipeline:
                     image: maven
                     shell: Sh
                     command: |+
-                      cd java-hello-world-with-maven
                       cat pom.xml
                       #mvn -Dmaven.test.skip=true -f pom.xml clean install -X
 
