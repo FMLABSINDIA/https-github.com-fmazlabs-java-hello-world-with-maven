@@ -46,6 +46,8 @@ pipeline:
 
           sharedPaths:
             - /root/.m2
+            - /var/run
+            - /opt
           caching:
             enabled: false
             paths: []
