@@ -37,8 +37,9 @@ pipeline:
                     image: maven
                     shell: Sh
                     command: |+
-                      cat pom.xml
-                      mvn -Dmaven.test.skip=true -f pom.xml clean install -X
+                      #cat pom.xml
+                      #mvn -Dmaven.test.skip=true -f pom.xml clean install -X
+                      ls -lrt /usr/lib/jvm/
 
                     envVariables:
                       MAVEN_OPTS: "-Dmaven.repo.local=/harness/maven/repository"
