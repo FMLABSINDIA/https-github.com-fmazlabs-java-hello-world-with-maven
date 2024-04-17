@@ -34,12 +34,12 @@ pipeline:
                   identifier: Run
                   spec:
                     connectorRef: dockerhubfrancislabs
-                    image: maven
+                    image: dockette/openjdk-mvn
                     shell: Sh
                     command: |+
                       #cat pom.xml
-                      #mvn -Dmaven.test.skip=true -f pom.xml clean install -X
-                      ls -lrt /usr/lib/jvm/
+                      mvn -Dmaven.test.skip=true -f pom.xml clean install -X
+
 
                     envVariables:
                       MAVEN_OPTS: "-Dmaven.repo.local=/harness/maven/repository"
