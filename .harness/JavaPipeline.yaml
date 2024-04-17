@@ -42,3 +42,5 @@ pipeline:
                       cd ..
                       pwd 
                       ls -lrt 
+                      cd java-hello-world-with-maven
+                      ls -lrt
