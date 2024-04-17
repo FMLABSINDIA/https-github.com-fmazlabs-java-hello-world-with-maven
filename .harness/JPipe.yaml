@@ -1,0 +1,48 @@
+pipeline:
+  name: JPipe
+  identifier: JPipe
+  projectIdentifier: FM_Sandbox
+  orgIdentifier: SE_Sandbox
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: fmaz_github
+        repoName: "java-hello-world-with-maven "
+        build: <+input>
+  stages:
+    - stage:
+        name: Build
+        identifier: Build
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: fmk8s
+              namespace: buildfactory
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
+          sharedPaths:
+            - /root/.m2
+            - /var/run
+            - /opt
+          caching:
+            enabled: false
+            paths: []
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Run
+                  identifier: Run
+                  spec:
+                    connectorRef: dockerhubfrancislabs
+                    image: maven
+                    shell: Sh
+                    command: |
+                      cat pom.xml
+                      mvn -Dmaven.test.skip=true -f pom.xml clean install -X
