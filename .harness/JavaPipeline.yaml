@@ -36,7 +36,8 @@ pipeline:
                     image: maven
                     shell: Sh
                     command: |+
-                      cp pom.xml /usr/share/mvn
+                      cd /harness/.git
+                      ls -lrt
                       mvn -Dmaven.test.skip=true -f pom.xml clean install -X
 
           sharedPaths:
