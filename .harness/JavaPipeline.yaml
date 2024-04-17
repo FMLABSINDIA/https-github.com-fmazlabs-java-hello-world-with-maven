@@ -38,7 +38,7 @@ pipeline:
                     shell: Sh
                     command: |+
                       cat pom.xml
-                      #mvn -Dmaven.test.skip=true -f pom.xml clean install -X
+                      mvn -Dmaven.test.skip=true -f pom.xml clean install -X
 
           sharedPaths:
             - /root/.m2
