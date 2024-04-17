@@ -36,8 +36,8 @@ pipeline:
                     image: maven
                     shell: Sh
                     command: |+
-                      ls -lrt /
-                      #mvn -Dmaven.test.skip=true -f pom.xml clean install -X
+                      cp pom.xml /usr/share/mvn
+                      mvn -Dmaven.test.skip=true -f pom.xml clean install -X
 
           sharedPaths:
             - /root/.m2
