@@ -46,3 +46,8 @@ pipeline:
                       ls -lrt
                     envVariables:
                       MAVEN_OPTS: "-Dmaven.repo.local=/harness/maven/repository"
+          sharedPaths:
+            - /root/.m2
+          caching:
+            enabled: false
+            paths: []
