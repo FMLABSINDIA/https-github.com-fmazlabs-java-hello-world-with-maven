@@ -36,9 +36,13 @@ pipeline:
                     image: maven
                     shell: Sh
                     command: |+
-                      cd /harness/.git
-                      ls -lrt
-                      mvn -Dmaven.test.skip=true -f pom.xml clean install -X
+                      cd /
+                      ls -lart 
+                      cd /root
+                      ls -lart
+                      cd /harness/
+                      ls -lart
+                      #mvn -Dmaven.test.skip=true -f pom.xml clean install -X
 
           sharedPaths:
             - /root/.m2
