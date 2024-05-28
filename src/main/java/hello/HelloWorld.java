@@ -1,6 +1,6 @@
 package hello;
 
-import org.joda.time.LocalTimess;
+import org.joda.time.LocalTimes;
 
 public class HelloWorld {
     public static void main(String[] args) {
