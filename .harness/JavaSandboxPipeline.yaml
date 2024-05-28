@@ -1,0 +1,50 @@
+pipeline:
+  name: JavaSandboxPipeline
+  identifier: JavaSandboxPipeline
+  projectIdentifier: FMSandbox
+  orgIdentifier: SE_Sandbox
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: fmaz_github
+        repoName: "java-hello-world-with-maven "
+        build: <+input>
+  stages:
+    - stage:
+        name: BuildJava
+        identifier: BuildJava
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: fmsandbox
+              namespace: fmsandbox
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Run
+                  identifier: Run
+                  spec:
+                    connectorRef: fmdockerhub
+                    image: dockette/openjdk-mvn
+                    shell: Sh
+                    command: |-
+                      #cat pom.xml
+                      mvn -Dmaven.test.skip=true -f pom.xml clean install -X
+                    envVariables:
+                      MAVEN_OPTS: "-Dmaven.repo.local=/harness/maven/repository"
+          sharedPaths:
+            - /root/.m2
+            - /var/run
+            - /opt
+          caching:
+            enabled: false
+            paths: []
