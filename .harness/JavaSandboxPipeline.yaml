@@ -7,8 +7,8 @@ pipeline:
   properties:
     ci:
       codebase:
-        connectorRef: fmaz_github
-        repoName: "java-hello-world-with-maven "
+        connectorRef: fmazlabs
+        repoName: java-hello-world-with-maven/
         build: <+input>
   stages:
     - stage:
